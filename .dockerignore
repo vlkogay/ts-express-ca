@@ -1,0 +1,9 @@
+**/node_modules/
+**/dist/
+**/tmp
+**/servers/
+**/coverage/
+npm-debug.log
+.git
+dockerfile
+Dockerfile

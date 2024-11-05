@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres
+    restart: unless-stopped
+    ports:
+      - '0.0.0.0:5432:5432'
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - ./servers/postgres/pgdata:/var/lib/postgresql/data
+      - ./servers/postgres/create-db.sql:/docker-entrypoint-initdb.d/create_database.sql
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -d postgres']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  email:
+    image: haravich/fake-smtp-server
+    restart: unless-stopped
+    ports:
+      - '0.0.0.0:1025:1025'
+      - '0.0.0.0:1080:1080'
+  redis:
+    image: redis
+    command: >
+      --requirepass example
+    restart: unless-stopped
+    ports:
+      - '0.0.0.0:6379:6379'
