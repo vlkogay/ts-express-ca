@@ -15,11 +15,11 @@ typescript strict
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/express-test.git
+   git clone https://github.com/vlkogay/ts-express-ca.git
    ```
 2. Navigate to the project directory:
    ```sh
-   cd express-test
+   cd ts-express-ca
    ```
 3. Install dependencies:
    ```sh
@@ -34,12 +34,13 @@ typescript strict
    ```
 2. Install docker and docker-compose
    ```sh
-   https://docs.docker.com/engine/install/
-   https://docs.docker.com/desktop/install/windows-install/
+   Linux: https://docs.docker.com/engine/install/
+   Windows: https://docs.docker.com/desktop/install/windows-install/
+   Mac: https://docs.docker.com/desktop/install/mac-install/
    ```
 3. Run servers
    ```sh
-   docker-compose up -d
+   docker compose up -d
    ```
 4. Start the server:
    ```sh
@@ -53,6 +54,21 @@ Run tests using:
 ```sh
 npm test
 ```
+
+```sh
+npm run coverage
+```
+
+### Docker
+
+1. Build docker
+   ```sh
+   docker build . -t express-ca
+   ```
+2. Run docker
+   ```sh
+   docker run express-ca
+   ```
 
 ### Configuration
 

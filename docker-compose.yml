@@ -1,9 +1,10 @@
 services:
+  # Postgres database for storing data
   db:
     image: postgres
     restart: unless-stopped
     ports:
-      - '0.0.0.0:5432:5432'
+      - '5432:5432'
     environment:
       POSTGRES_PASSWORD: example
     volumes:
@@ -14,16 +15,18 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+  # SMTP server for testing
   email:
     image: haravich/fake-smtp-server
     restart: unless-stopped
     ports:
-      - '0.0.0.0:1025:1025'
-      - '0.0.0.0:1080:1080'
+      - '1025:1025'
+      - '1080:1080'
+  # Redis server for caching
   redis:
     image: redis
     command: >
       --requirepass example
     restart: unless-stopped
     ports:
-      - '0.0.0.0:6379:6379'
+      - '6379:6379'

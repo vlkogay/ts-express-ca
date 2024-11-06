@@ -6,12 +6,13 @@
   },
   "scripts": {
     "lint": "npx eslint",
-    "start": "npx env-cmd -f .env npx webpack && node dist/index.js",
-    "start:production": "npx env-cmd -f .env npx webpack --mode production && node dist/index.js",
+    "start": "npx env-cmd -f .env npx webpack && node dist/server.js",
+    "start:production": "npx env-cmd -f .env npx webpack --mode production && node dist/server.js",
     "start:serve": "npx env-cmd -f .env npx webpack serve --mode development",
     "coverage": "npx jest --coverage",
     "test": "npx jest",
-    "build": "npx env-cmd -f .env webpack --mode production"
+    "build": "npx env-cmd -f .env npx webpack --mode production",
+    "build:dev": "npx env-cmd -f .env npx webpack"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.0",
